@@ -13,7 +13,8 @@ class Hook{
      * 初始化
      */
     public static function init(){
-
+        $dir = COMMON_MODULE_PATH;
+        var_dump($dir);
     }
 
     /**
@@ -27,6 +28,6 @@ class Hook{
      * 执行类
      */
     public static function exec(){
-        
+
     }
 }

@@ -12,6 +12,15 @@ require(__DIR__.'/base.php');
 
 /*
  * ------------------------------------------------------
+ *  最低版本
+ * ------------------------------------------------------
+ */
+if(version_compare(PHP_VERSION,PHP_LESS_VERSION,'<')) {
+    exit("PHP 版本大于5.4.0");
+}
+
+/*
+ * ------------------------------------------------------
  *  框架初始配置
  * ------------------------------------------------------
  */
@@ -28,11 +37,21 @@ use core\main\App;
 
 /*
  * ------------------------------------------------------
- *  自动注册类
+ *  命名空间自动注册加载类
  * ------------------------------------------------------
  */
 spl_autoload_register(function($class){
-    
+    //static $loadedPath = array();
+    $class = ltrim($class,'\\');
+    if(($lastSlash = strrpos($class, '\\')) !== false){
+        $namespace = substr($class,0,$lastSlash);
+        $className = substr($class,$lastSlash + 1);
+        if(file_exists(REST_PATH.str_replace('\\', DS, $namespace).DS.$className.EXT)){
+            if(class_exists($className) === false){
+                require(REST_PATH.str_replace('\\', DS, $namespace).DS.$className.EXT);
+            }
+        }
+    }
 },true);
 
 /*

@@ -2,7 +2,7 @@
 /**
  * 框架配置类
  */
-namespace main\base;
+namespace core\main;
 class Config{
     /**
      * 构造函数
@@ -10,7 +10,7 @@ class Config{
     public function __construct(){
 
     }
-    
+
     /**
      * 配置文件检测
      */

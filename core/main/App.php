@@ -2,7 +2,7 @@
 /**
  * 框架初始化/启动类
  */
-namespace main\base;
+namespace core\main;
 class App{
 
     /**
@@ -16,6 +16,11 @@ class App{
      * 运行框架
      */
     public static function run(){
-
+        try{
+            self::init();
+            Hook::init();
+        }catch(\Exception $e){
+            var_dump($e);
+        }
     }
 }
