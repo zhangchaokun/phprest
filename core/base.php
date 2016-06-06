@@ -8,13 +8,17 @@ define('REST_VERSION', '1.0.0');
 
 //系统常量
 defined('DS')                 or define('DS', DIRECTORY_SEPARATOR);
+defined('NS')                 or define('NS', '\\');
 defined('ROOT_PATH')          or define('ROOT_PATH', realpath('./') . DS);
 defined('REST_PATH')          or define('REST_PATH', realpath('./') . DS);
-defined('API_PATH')           or define('API_PATH', REST_PATH. 'api' . DS);
+defined('API_NAME')           or define('API_NAME', 'api');
+defined('API_PATH')           or define('API_PATH', REST_PATH. API_NAME . DS);
 defined('CORE_PATH')          or define('CORE_PATH', REST_PATH . 'core' . DS);
 defined('EXT')                or define('EXT', '.php');
 defined('COMMON_MODULE')      or define('COMMON_MODULE', 'common');
 defined('COMMON_MODULE_PATH') or define('COMMON_MODULE_PATH', API_PATH.COMMON_MODULE.DS);
+defined('MODEL_LAYER')        or define('MODEL_LAYER', 'model');
+defined('CONTROLLER_LAYER')   or define('CONTROLLER_LAYER', 'controller');
 defined('PHP_LESS_VERSION')   or define('PHP_LESS_VERSION', '5.4.0');
 
 //环境常量

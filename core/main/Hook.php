@@ -14,11 +14,11 @@ class Hook{
      */
     public static function init(){
         $dir = COMMON_MODULE_PATH;
-        var_dump($dir);
+        //var_dump($dir);
     }
 
     /**
-     * 执行钩子
+     * 钩子监听
      */
     public static function listen(){
 

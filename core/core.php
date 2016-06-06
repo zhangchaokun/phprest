@@ -41,14 +41,13 @@ use core\main\App;
  * ------------------------------------------------------
  */
 spl_autoload_register(function($class){
-    //static $loadedPath = array();
-    $class = ltrim($class,'\\');
-    if(($lastSlash = strrpos($class, '\\')) !== false){
+    $class = ltrim($class,NS);
+    if(($lastSlash = strrpos($class, NS)) !== false){
         $namespace = substr($class,0,$lastSlash);
         $className = substr($class,$lastSlash + 1);
-        if(file_exists(REST_PATH.str_replace('\\', DS, $namespace).DS.$className.EXT)){
+        if(file_exists(REST_PATH.str_replace(NS, DS, $namespace).DS.$className.EXT)){
             if(class_exists($className) === false){
-                require(REST_PATH.str_replace('\\', DS, $namespace).DS.$className.EXT);
+                require(REST_PATH.str_replace(NS, DS, $namespace).DS.$className.EXT);
             }
         }
     }
